@@ -1,5 +1,6 @@
 import 'package:calculator_app/Global.dart';
 import 'package:calculator_app/CalculatorUIGenerator.dart';
+import 'package:calculator_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -18,12 +19,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Calculator App',
       theme: SchedulerBinding.instance!.window.platformBrightness == Brightness.dark ? ThemeData.dark() : ThemeData.light(), //MediaQuery.of(context).platformBrightness == Brightness.dark ?  {calculator.themeIsDark = true, ThemeData.dark()} : {calculator.themeIsDark = false, ThemeData.light()},//calculator.themeIsDark ? ThemeData.dark() : ThemeData.light(),  //mytheme.currentTheme(),
-
       home:   MyHomePage(),
     );
 
   }
 }
+
+
 
 class MyHomePage extends StatelessWidget {
 
@@ -33,10 +35,10 @@ class MyHomePage extends StatelessWidget {
     SchedulerBinding.instance!.window.platformBrightness == Brightness.dark ? calculator.themeIsDark = true : calculator.themeIsDark = false ;
 
     return Scaffold(
+      backgroundColor: calculator.themeIsDark ? myColorBlack :  myColorWhite, //Colors.white.withOpacity(0.85),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Center(
-
           child:
           Observer(
             builder: (_) =>

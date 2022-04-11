@@ -1,4 +1,5 @@
 import 'package:calculator_app/Global.dart';
+import 'package:calculator_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -30,7 +31,6 @@ class _ButtonContainerState extends State<ButtonContainer> {
 
     void onTapDown(TapDownDetails details) {
       setState(() {
-        //buttonTap(this.widget.label);
         _isPressed = true;
       });
       this.widget.onTap();
@@ -58,11 +58,10 @@ class _ButtonContainerState extends State<ButtonContainer> {
         width: buttonSize.width,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 150),
-          //padding: const EdgeInsets.all(24.0),
           decoration: BoxDecoration(
             color:  _backgroundColor(),
             border: _borderColor(),
-            borderRadius: BorderRadius.circular(widget.bevel * 10),  //.circular(widget.bevel * 10),
+            borderRadius: BorderRadius.circular(widget.bevel * 10),
             boxShadow: _boxShadow(),
           ),
           child: Center(
@@ -72,7 +71,7 @@ class _ButtonContainerState extends State<ButtonContainer> {
               textAlign:  TextAlign.center,
             ),
           ),
-          ), //Typography.blackCupertino.display2
+          ),
         ),
       ),
     );
@@ -83,7 +82,7 @@ class _ButtonContainerState extends State<ButtonContainer> {
       return null;
     } else{
 
-    if( calculator.themeIsDark){
+    if(calculator.themeIsDark){
     return _darkBoxShadow();
     } else{
     return _lightBoxShadow();
@@ -96,34 +95,35 @@ class _ButtonContainerState extends State<ButtonContainer> {
   }
   _darkBoxShadow() => [BoxShadow(
     blurRadius: widget.bevel,
-    offset: Offset(4.5, 4.5),
+    offset: Offset(3.5, 3.5),
     //offset: -widget.blurOffset,
-    color: Color.fromRGBO(30, 30, 30, 1,),
+    color:  Colors.grey.shade900 //Color.fromRGBO(30, 30, 30, 1)   //Color.fromRGBO(30, 30, 30, 1,),
   )];
 
     _lightBoxShadow() =>  [
       BoxShadow(
     blurRadius: widget.bevel,
-    offset:  -widget.blurOffset,
-    color: this.widget.color.mix(Colors.white, .6),
+    offset: Offset(-3.5, -3.5), // -widget.blurOffset,
+    color:  this.widget.color.mix(Colors.white, .9),
      ),
       BoxShadow(
     blurRadius: widget.bevel ,
-    offset: widget.blurOffset,
-    color: this.widget.color.mix(Colors.black, .3),
+    offset: Offset(3.5, 3.5),  //widget.blurOffset,
+    color:  this.widget.color.mix(Colors.white, .1),
   )
     ];
 
   _backgroundColor() {
     if( calculator.themeIsDark){
-      return Color.fromRGBO(38, 38, 38, 1);
+      return myColorBlack; // Color.fromRGBO(38, 38, 38, 1);
     }else
-    return Color.fromRGBO(239, 238, 238, 1);
+    return  myColorWhite;  //Color.fromRGBO(239, 238, 238, 1);
   }
 
   _borderColor() {
-    return Border.all(color: calculator.themeIsDark ? Color.fromRGBO(46, 46, 46, 1) : Colors.transparent);
-    }
+    return Border.all(
+        color: calculator.themeIsDark ? Color.fromRGBO(34, 34, 34, 1) : Colors.transparent);
+    } // Color.fromRGBO(46, 46, 46, 1)
 
 
 }

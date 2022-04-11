@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:math_expressions/math_expressions.dart';
 import 'package:mobx/mobx.dart';
 part "calculator_state.g.dart";
