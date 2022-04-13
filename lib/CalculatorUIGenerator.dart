@@ -94,7 +94,7 @@ buttonsGrid() => Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ButtonContainer(color: Colors.grey.shade300, label: "0",textColor: calculator.themeIsDark ? Colors.white70 :   Colors.black, onTap: () => calculator.addUserInput("0")),
-              ButtonContainer(color: Colors.grey.shade300, label: ".", textColor: calculator.themeIsDark ? Colors.white70 :  Colors.black, onTap: () => null),
+              ButtonContainer(color: Colors.grey.shade300, label: ".", textColor: calculator.themeIsDark ? Colors.white70 :  Colors.black, onTap: () => calculator.addUserInput(".")),
               ButtonContainer(color: Colors.grey.shade300, label: "=",textColor: Colors.orange, onTap: () => calculator.result()),
             ],
           ),

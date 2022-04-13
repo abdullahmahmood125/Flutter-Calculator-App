@@ -115,6 +115,7 @@ class _ButtonContainerState extends State<ButtonContainer> {
 
   _backgroundColor() {
     if( calculator.themeIsDark){
+
       return myColorBlack; // Color.fromRGBO(38, 38, 38, 1);
     }else
     return  myColorWhite;  //Color.fromRGBO(239, 238, 238, 1);
