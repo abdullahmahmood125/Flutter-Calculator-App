@@ -5,7 +5,7 @@ part "calculator_state.g.dart";
 class CalculatorState extends _CalculatorState with _$CalculatorState {
   CalculatorState();
 }
-
+//business login in this class.
 abstract class _CalculatorState with Store{
 
   @observable
@@ -71,8 +71,10 @@ abstract class _CalculatorState with Store{
   @action
   void addUserInput(String inputChar){
 
+    //check that no operator should come first.
     if(_isFirstOneIsOperator(inputChar)){return;}
 
+    //check that no operator should come last.
     if(_isLastOneIsOperator(inputChar)){
       this.userInput = this.userInput.replaceRange(this.userInput.length - 1 , this.userInput.length, inputChar);
    }else{
@@ -114,7 +116,7 @@ abstract class _CalculatorState with Store{
     }
   }
 
-
+//returns the elements list which was input.
   configElements(){
     var resultElements = [];
     var startIndex = 0;
@@ -141,6 +143,7 @@ abstract class _CalculatorState with Store{
 
   }
 
+  //bodmas rule and multiple expression logic.
   double calculateResult() {
     var calElements = [];
     calElements = configElements();
@@ -148,8 +151,10 @@ abstract class _CalculatorState with Store{
     double a = 0.0;
     double b = 0.0;
 
+
     while(calElements.length != 1){
       for(int i = 0; i< calElements.length; i++) {
+        //checking * and / precedence and resolve it first.
         if (calElements[i] == "*" || calElements[i] == "/") {
           a = double.parse(calElements[i - 1]);
           b = double.parse(calElements[i + 1]);
@@ -161,8 +166,10 @@ abstract class _CalculatorState with Store{
         }
       }
 
+      //when no * and / operation left than move on to lower precedence operator.
       if(!calElements.contains("*") && !calElements.contains("/")){
         for(int i = 0; i< calElements.length; i++) {
+          //solving + and -.
           if (calElements[i] == "+" || calElements[i] == "-") {
             a = double.parse(calElements[i - 1]);
             b = double.parse(calElements[i + 1]);
