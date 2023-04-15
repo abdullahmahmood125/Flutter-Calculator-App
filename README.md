@@ -2,14 +2,14 @@
 
 Flutter project.
 
-# Calculator UI Design
+## Calculator UI Design
 
 1. Support system theme settings (Dark/Light)
 2. Implementation with valid and standard widgets
 3. Make sure the buttons are designed using Neumorphic UI
 
 
-# Calculator Logic
+## Calculator Logic
 
 1. The calculator follows
 2. BODMAS rule (precedence)
