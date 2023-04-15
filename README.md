@@ -1,15 +1,26 @@
-# calculator_app
+# Calculator app
 
-A new Flutter project.
+Flutter project.
 
-## Getting Started
+##Calculator UI Design
 
-This project is a starting point for a Flutter application.
+1. Support system theme settings (Dark/Light)
+2. Implementation with valid and standard widgets
+3. Make sure the buttons are designed using Neumorphic UI
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+##Calculator Logic
+
+1. The calculator follows
+2. BODMAS rule (precedence)
+3. Multi operator expressions
+4. Have +/- logic
+5. Horizontal scrolling
+
+![Task](https://user-images.githubusercontent.com/31010075/232252564-2e33f6ec-7c72-4559-b029-347ee87c5b06.jpg)
+
+
+
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
